@@ -3,7 +3,7 @@
 const ethers = require('ethers');
 const axios = require('axios');
 
-const { abi } = require('../ABIs/abi');
+const { abi } = require('../ABIs/stocksABI');
 const provider = new ethers.providers.JsonRpcProvider(
   'https://api.baobab.klaytn.net:8651/'
 );
