@@ -39,9 +39,12 @@ contract Oracle is Ownable {
 
     function storeStockData(string memory open, string memory high, string memory low, uint _id) onlyOwner public {
         data[_id] = dataStruct(open,high,low);
+        
     }
 
     function getStockData(uint _id) public view returns (string memory, string memory, string memory){
+        require(bytes(data[_id]._open).length != 0 && bytes(data[_id]._high).length != 0 && bytes(data[_id]._low).length != 0, "Not Fetched Yet");
         return( data[_id]._open, data[_id]._high, data[_id]._low);
+        
     }
 }

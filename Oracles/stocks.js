@@ -7,7 +7,7 @@ const { abi } = require('../ABIs/stocksABI');
 const provider = new ethers.providers.JsonRpcProvider(
   'https://api.baobab.klaytn.net:8651/'
 );
-const contractAddress = '0x73cd9E0708e4E6a6e7187cd0b9977B726EAb120A';
+const contractAddress = '0xB8820e246F5CE4e1CA0FF872771EAd6C4f1D1134';
 const privateKey =
   'dadb1c57bce751f58dc481b55d92838b391dfe04f8cc404b0bd05cb6e9b115e9';
 const wallet = new ethers.Wallet(privateKey, provider);
@@ -17,7 +17,7 @@ const contract = new ethers.Contract(contractAddress, abi, wallet);
 
 const oracleFunction = async () => {
  contract.on('Updatedinput', async (name_ofStock, sender, id) => {
-    console.log('--details---', name_ofStock, sender, id.toString());
+    console.log("Stock name: ", name_ofStock,'\n',"Sender's address: ",sender,'\n',"ID of the request: ", id.toString());
     const namex = name_ofStock;
     console.log(namex);
       try {
