@@ -44,6 +44,7 @@ contract TrafficDataOracle is Ownable{
     }
 
     function getTrafficData(uint _id) public view returns (uint,uint,uint){
+        require(uint(data[_id]._freeFlowSpeed) != 0 && uint(data[_id]._currentTravelTime) != 0 && uint(data[_id]._freeFlowTravelTime) != 0, "Not Fetched Yet");
         return( data[_id]._freeFlowSpeed, data[_id]._currentTravelTime, data[_id]._freeFlowTravelTime);
     }
     

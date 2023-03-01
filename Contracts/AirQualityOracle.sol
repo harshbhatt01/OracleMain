@@ -40,6 +40,7 @@ contract AirQualityOracle is Ownable{
     }
 
     function getAirData(uint _id) public view  returns (string memory){
+        require(bytes(data[_id]._quality).length != 0, "Not Fetched Yet");
         return( data[_id]._quality);
     }
     

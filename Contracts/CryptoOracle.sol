@@ -40,6 +40,7 @@ contract CryptoPriceFeedOracle is Ownable{
     }
 
     function getCrytoData(uint _id) public view  returns (string memory){
+        require(bytes(data[_id]._price).length != 0, "Not Fetched Yet");
         return( data[_id]._price);
     }
     
