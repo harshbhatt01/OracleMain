@@ -2,14 +2,13 @@
 
 const ethers = require('ethers');
 const axios = require('axios');
-
+require("dotenv").config();
 const { airQualityABI } = require('../ABIs/airQualityABI');
 const provider = new ethers.providers.JsonRpcProvider(
   'https://api.baobab.klaytn.net:8651/'
 );
 const contractAddress = '0xaf19d2e200629024307dFd7494e68702761C4090';
-const privateKey =
-  'dadb1c57bce751f58dc481b55d92838b391dfe04f8cc404b0bd05cb6e9b115e9';
+const privateKey = process.env.PRIVATE_KEY
 const wallet = new ethers.Wallet(privateKey, provider);
 const AirQualitycontract = new ethers.Contract(contractAddress, airQualityABI, wallet);
 
